@@ -16,13 +16,24 @@ const ProfileTemplate = () => {
           url
         }
       }
+      site {
+        siteMetadata {
+          author {
+            name
+            github
+            twitter
+            image_url
+          }
+        }
+      }
     }
   `)
-  const { allTimeline: { nodes: timelines } } = data;
+  const { allTimeline: { nodes: timelines }, site: { siteMetadata: { author }} } = data;
+
   return (
     <Layout>
       <Head title='Profile'/>
-      <ProfileView profileData={{}}/>
+      <ProfileView {...author}/>
       <TimelineList timelineEvents={timelines}/>
     </Layout>
   )
