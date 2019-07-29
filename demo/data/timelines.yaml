@@ -1,23 +1,27 @@
-- name: React Rally
+- name: Google
   location: Salt Lake City, UT
   start_date: 2019-08-22
   end_date: 2019-08-23
+  description: Description of your work/schooling at present company comes here(Only Text supported now)
   url: https://www.reactrally.com/
 
 - name: DinosaurJS
   location: Denver, CO
   start_date: 2019-06-20
   end_date: 2019-06-21
+  description: Description of your work/schooling at present company comes here(Only Text supported now)
   url: https://dinosaurjs.org/
 
 - name: JSHeroes
   location: Cluj-Napoca, Romania
   start_date: 2020-04-23
   end_date: 2020-04-24
+  description: Description of your work/schooling at present company comes here(Only Text supported now). will support markdown in next version.
   url: https://jsheroes.io/
 
 - name: The Lead Developer
   location: Austin, TX
   start_date: 2019-11-08
   end_date: 2019-11-08
+  description: Description of your work/schooling at present company comes here(Only Text supported now)
   url: https://austin2019.theleaddeveloper.com/

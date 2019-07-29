@@ -24,6 +24,7 @@ exports.sourceNodes = ({ actions }) => {
       startDate: Date! @dateformat @proxy(from: "start_date")
       endDate: Date! @dateformat @proxy(from: "end_date")
       url: String!
+      description: String!
     }
   `)
 }
@@ -31,17 +32,11 @@ exports.sourceNodes = ({ actions }) => {
 /**
  * site page generation.
  */
-exports.createPages = ({ actions, reporter }, options) => {
-  const basePath = options.basePath || "/"
+exports.createPages = async ({ actions, reporter }, { basePath = "/", context={} }) => {
   // user profile/timeline page
   actions.createPage({
     path: basePath,
     component: require.resolve("./src/templates/profile.js"),
-    context: {}
-  })
-  actions.createPage({
-    path: `${basePath}/profile`,
-    component: require.resolve("./src/templates/profile.js"),
-    context: {}
+    context
   })
 }

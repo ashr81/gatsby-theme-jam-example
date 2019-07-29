@@ -1,13 +1,31 @@
-import React from "react"
-import { Styled } from "theme-ui"
-import Layout from "../components/layout";
-import Head from "../components/head";
+import React from "react";
+import { graphql, useStaticQuery } from 'gatsby'
+import { Layout, Head, TimelineList, ProfileView } from "../components";
 
-const ProfileTemplate = ({ pageContext }) => (
-  <Layout>
-    <Head title='Profile'/>
-    <Styled.h1>{pageContext.heading}</Styled.h1>
-  </Layout>
-)
+const ProfileTemplate = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      allTimeline(sort: {fields: startDate, order: ASC}) {
+        nodes {
+          id
+          name
+          startDate(formatString: "MMMM Do, YYYY")
+          endDate(formatString: "MMMM Do, YYYY")
+          location
+          description
+          url
+        }
+      }
+    }
+  `)
+  const { allTimeline: { nodes: timelines } } = data;
+  return (
+    <Layout>
+      <Head title='Profile'/>
+      <ProfileView profileData={{}}/>
+      <TimelineList timelineEvents={timelines}/>
+    </Layout>
+  )
+}
 
 export default ProfileTemplate;

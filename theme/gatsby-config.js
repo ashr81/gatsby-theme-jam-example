@@ -1,7 +1,4 @@
 module.exports = ({ contentPath = 'data', basePath='/' }) => ({
-  siteMetadata: {
-    title: "Gatsby Theme Jam",
-  },
   plugins: [
     "gatsby-plugin-theme-ui",
     {
@@ -13,7 +10,7 @@ module.exports = ({ contentPath = 'data', basePath='/' }) => ({
     {
       resolve: "gatsby-transformer-yaml",
       options: {
-        typeName: "Timeline"
+        typeName: 'Timeline'
       }
     }
   ]
