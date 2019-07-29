@@ -4,16 +4,31 @@
  * @see https://theme-ui.com/gatsby-plugin/
  */
 export default {
+  breakpoints: [600, 900, 1200],
+  initialColorMode: 'light',
   colors: {
-    text: "#232129",
-    background: "#fff",
-    primary: "#639",
+    text: '#000',
+    background: '#fff',
+    primary: '#07c',
+    secondary: '#05a',
+    muted: '#f6f6f6f',
+    modes: {
+      dark: {
+        text: '#fff',
+        background: '#000',
+        primary: '#0cf',
+        secondary: '#09c',
+        muted: '#111',
+      }
+    }
   },
   fonts: {
+    body: 'Nunito, sans-serif',
+    heading: 'Nunito, sans-serif',
     default:
-      '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+      'Nunito, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
   },
-  fontSizes: [16, 18, 20, 22, 27, 36],
+  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
   lineHeights: {
     text: "1.45",
     heading: "1.1",
@@ -37,10 +52,8 @@ export default {
       span: {
         display: "block",
         fontSize: 3,
-        margin: "0 auto",
         maxWidth: "container",
         padding: 3,
-        width: "90vw",
       },
     },
     Main: {
