@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import React from 'react';
 import { Styled, jsx, Flex } from "theme-ui";
-import { Link } from 'gatsby';
 import { FaGithub, FaTwitter } from 'react-icons/fa';
 
 const ProfileView = ({ name, github, twitter, image_url }) => {
@@ -15,7 +14,7 @@ const ProfileView = ({ name, github, twitter, image_url }) => {
       height: '200px',
       borderRadius: '50%'
     }} alt="Profile Image"/>
-    : 
+    :
     <Flex sx={{
       height: '200px',
       alignItems: 'center'

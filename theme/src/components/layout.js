@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import React from "react"
 import { css, Global } from "@emotion/core"
-import { Layout as StyledLayout, Header, Main, Container, useColorMode, ThemeProvider, jsx } from "theme-ui"
+import { Layout as StyledLayout, Main, Container, ThemeProvider, jsx } from "theme-ui"
 import theme from '../gatsby-plugin-theme-ui';
 import { graphql, useStaticQuery } from "gatsby";
-import { Helmet } from 'react-helmet'
+import { Footer, Header } from ".";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -12,15 +12,13 @@ const Layout = ({ children }) => {
       site {
         siteMetadata {
           title
+          author {
+            name
+          }
         }
       }
     }
   `)
-
-  const [mode, setMode] = useColorMode()
-  const toggleMode = e => {
-    setMode(mode === 'dark' ? 'light' : 'dark')
-  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -32,20 +30,11 @@ const Layout = ({ children }) => {
             }
           `}
         />
-        <Header sx={{
-          justifyContent: 'space-between'
-        }}>
-          <span>{data.site.siteMetadata.title}</span>
-          <button title="Toggle Dark Mode" onClick={toggleMode}>
-            {mode}
-          </button>
-          <Helmet>
-          <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,600,800&display=swap" rel="stylesheet"></link>
-          </Helmet>
-        </Header>
+        <Header title={data.site.siteMetadata.title}/>
         <Main>
           <Container>{children}</Container>
         </Main>
+        <Footer author={data.site.siteMetadata.author.name}/>
       </StyledLayout>
     </ThemeProvider>
   )
